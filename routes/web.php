@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    $tasks = [
+        ['task' => 'Learning Laravel', 'completed' => true],
+        ['task' => 'Learning React', 'completed' => true],
+        ['task' => 'Learning Vue', 'completed' => false],
+        ['task' => 'Learning Postgres', 'completed' => false],
+        ['task' => 'Learning modern HTML/CSS', 'completed' => true],
+        ['task' => 'Stay calm', 'completed' => true]
+    ];
+    return view('home', ['tasks' => $tasks]);
 });
 
 Route::get('/about', function () {
