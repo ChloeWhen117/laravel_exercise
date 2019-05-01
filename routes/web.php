@@ -14,3 +14,8 @@
 Route::get('/', 'MainController@home');
 Route::get('/about', 'MainController@about');
 Route::get('/contact', 'MainController@contact');
+Route::get('/projects', 'ProjectsController@index');
+
+Route::Get('/phpinfo', function() {
+    phpinfo();
+});
