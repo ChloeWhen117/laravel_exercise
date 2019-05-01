@@ -1,4 +1,4 @@
-# laravel_exercise
+# laravel_sandbox
 
 ## Dependencies
 
