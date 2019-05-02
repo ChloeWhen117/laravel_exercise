@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title') - Laravel</title>
+        <title>@yield('title') - Laravel Sandbox</title>
 
         <style>
 *, *:before, *:after {
@@ -54,10 +54,14 @@ nav#main ul {
     nav#main ul {
         justify-content: flex-end;
     }
-}
-main#content {
-    margin: 3em;
-}
+    }
+    main#content {
+        margin: 3em;
+    }
+    form div {
+        margin: 10px;
+    }
+
     @stack('inline-styles');
         </style>
     </head>
