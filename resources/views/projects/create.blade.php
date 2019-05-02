@@ -10,17 +10,47 @@
 
     <form action="/projects" method="POST">
         @csrf
+        <div class="field">
+            <label class="label" for="title">Project Title</label>
 
-        <div>
-            <input type="text" name="title" placeholder="Project Title" />
+            <div class="control">
+                <input
+                    type="text"
+                    class="input {{ $errors->has('title') ? 'is-danger' : '' }}"
+                    name="title"
+                    value="{{ old('title') }}"
+                    required>
+            </div>
         </div>
 
-        <div>
-            <textarea name="description" cols="30" rows="10" placeholder="Project Description"></textarea>
+        <div class="field">
+            <label class="label" for="description">Project Description</label>
+
+            <div class="control">
+                <textarea
+                    name="description"
+                    class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}"
+                    required
+                >
+                    {{ old('description') }}
+                </textarea>
+            </div>
         </div>
 
-        <div>
-            <button class="create" type="submit">Create Project</button>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Create Project</button>
+            </div>
         </div>
+
+        @if ($errors->any())
+            <div class="notification is-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </form>
 @endsection

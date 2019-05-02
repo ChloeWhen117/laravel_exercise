@@ -8,22 +8,53 @@
 
     <hr />
 
+
     <form action="/projects/{{ $project->id }}" method="POST">
         @csrf
-
         @method('PATCH')
 
-        <div>
-            <input type="text" name="title" value="{{ $project->title }}" placeholder="Project Title" />
+        <div class="field">
+            <label class="label" for="title">Project Title</label>
+
+            <div class="control">
+                <input
+                    type="text"
+                    class="input {{ $errors->has('title') ? 'is-danger' : '' }}"
+                    name="title"
+                    value="{{ $project->title }}"
+                    required>
+            </div>
         </div>
 
-        <div>
-            <textarea name="description" cols="30" rows="10" placeholder="Project Description">{{ $project->description }}</textarea>
+        <div class="field">
+            <label class="label" for="description">Project Description</label>
+
+            <div class="control">
+                <textarea
+                    name="description"
+                    class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}"
+                    required
+                >
+                    {{ $project->description }}
+                </textarea>
+            </div>
         </div>
 
-        <div>
-            <button class="edit" type="submit">Edit Project</button>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Edit Project</button>
+            </div>
         </div>
+
+        @if ($errors->any())
+            <div class="notification is-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </form>
 
     <form action="/projects/{{ $project->id }}" method="POST">
