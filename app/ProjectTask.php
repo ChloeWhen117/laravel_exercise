@@ -17,6 +17,7 @@ class ProjectTask extends Model
     {
         $this->update(['completed' => $completed]);
     }
+    
     public function toggleCompleted()
     {
         $this->setCompleted( ! $this->completed);
