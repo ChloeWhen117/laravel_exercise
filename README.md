@@ -20,5 +20,6 @@ composer run-script post-root-package-install
 ## Running App
 
 ```
+php artisan migrate
 php artisan serve
 ```
