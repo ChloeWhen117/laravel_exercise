@@ -3,54 +3,62 @@
 @section('title', 'View Project')
 
 @section('content')
+    <hr />
+    <h1 class="title">{{ $project->title }}</h1>
+    <hr />
 
-    <h1>View Project</h1>
-
-    <h2>{{ $project->title }}</h2>
-
-        <p>{{ $project->description }}</p>
+    <p>{{ $project->description }}</p>
 
     <form action="/projects/{{ $project->id }}/edit" method="get">
-        <input type="submit" value="Edit Project" 
-            name="Submit" id="frm1_submit" />
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button">Edit Project</button>
+            </div>
+        </div>
     </form>
 
 
     <h3>Tasks</h3>
 
     @if($project->tasks->count())
-        <ul id="project-tasks" style="list-style-type:none;">
-            @foreach($project->tasks as $task)
-                <label class="checkbox {{ $task->completed ? 'completed' : ''}}">
-                    <form action="/projects/{{ $project->id }}/tasks/{{ $task->id }}" method="POST">
+        <div>
+            <ul id="project-tasks" style="list-style-type:none;">
+                @foreach($project->tasks as $task)
+                    <form method="POST" action="/tasks/{{ $task->id }}">
+                        @method('PATCH')
                         @csrf
 
-                        @method('PATCH')
-
-                        <input type="checkbox" name="completed" id="task-checkbox-{{ $task->id }}" onChange="this.form.submit()"{{ $task->completed ? ' checked' : '' }} />
-
-                        <label for="task-checkbox-{{ $task->id }}">{{ $task->description }}</label>
+                        <label class="checkbox {{ $task->completed ? 'is-complete' : '' }}"         for="completed">
+                            <input 
+                                type="checkbox" 
+                                name="completed" 
+                                onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
+                            {{ $task->description }}
+                        </label>
                     </form>
-                </label>
-            @endforeach
-        </ul>
+                @endforeach
+            </ul>
+        </div>
     @else
         <p>There aren't any tasks</p>
     @endif
-
-    <div class="field">
-        <form action="/projects/{{ $project->id }}/tasks" method="POST">
-            @csrf
-            <label>Add Task</label>
-
-            <div>
-                <input type="text" name="description" />
+    <form action="/projects/{{ $project->id }}/tasks" method="POST">
+        @csrf
+        <div class="field">
+            <label class="label" for="task">Add Task</label>
+            <div class="control">
+                <textarea
+                    name="description"
+                    class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}"
+                    required
+                >
+                </textarea>
             </div>
 
-            <div>
-                <button class="create" type="submit">Add Task</button>
+            <div class="control">
+                <button type="submit" class="button">Add Task</button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 
 @endsection

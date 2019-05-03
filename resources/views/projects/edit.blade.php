@@ -3,11 +3,9 @@
 @section('title', 'Edit Project')
 
 @section('content')
-
-    <h1>Edit a Project</h1>
-
     <hr />
-
+    <h1>Edit a Project</h1>
+    <hr />
 
     <form action="/projects/{{ $project->id }}" method="POST">
         @csrf
@@ -61,9 +59,8 @@
         @csrf
 
         @method('DELETE')
-
-        <div>
-            <button class="delete" type="submit">Delete Project</button>
+        <div class="control">
+            <button type="submit" class="button">Delete Project</button>
         </div>
     </form>
 @endsection

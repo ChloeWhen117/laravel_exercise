@@ -6,7 +6,7 @@
 
     <hr />
 
-    <h1>View All Projects</h1>
+    <h1 class="title">All Projects</h1>
 
     <hr />
 
