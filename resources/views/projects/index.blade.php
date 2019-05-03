@@ -4,10 +4,6 @@
 
 @section('content')
 
-    <ul>
-        <li><a href="/projects/create">Create a New Project</a>
-    </ul>
-    
     <hr />
 
     <h1>View All Projects</h1>
@@ -24,5 +20,10 @@
     @endforeach
 
     </ul>
+
+    <form action="/projects/create" method="get">
+        <input type="submit" value="Create a New Project" 
+            name="Submit" id="frm1_submit" />
+    </form>
 
 @endsection
