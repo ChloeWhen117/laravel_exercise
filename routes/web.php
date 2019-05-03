@@ -16,9 +16,6 @@
 Route::get('/', 'MainController@home');
 Route::get('/about', 'MainController@about');
 Route::get('/contact', 'MainController@contact');
-Route::get('/projects', 'ProjectsController@index');
-Route::get('/projects/create', 'ProjectsController@create');
-Route::post('/projects', 'ProjectsController@store');
 
 // Projects
 
@@ -31,6 +28,9 @@ Route::resource('projects', 'ProjectsController');
 // Route::patch('/projects/{project}', 'ProjectsController@update');
 // Route::delete('/projects/{project}', 'ProjectsController@destroy');
 
+// Project Tasks
+Route::patch('/projects/{project}/tasks/{task}', 'ProjectTasksController@update');
+Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 
 Route::Get('/phpinfo', function() {
     phpinfo();
