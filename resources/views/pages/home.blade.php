@@ -3,23 +3,24 @@
 @section('title', 'Home')
 
 @section('content')
-<h1>Home</h1>
+<h1 class="title">Home</h1>
 
 </html>
-    <p>Welcome home!</p>
+    <div>
+        <p>Welcome home!</p>
+        </br>
+        <p>Why not <a href="/contact">contact us</a>?</p>
+        </br>
+        <h2>My Tasks</h2>
 
-    <p>Why not <a href="/contact">contact us</a>?</p>
+        <ul style="list-style-type: none;">
 
-    <h2>My Tasks</h2>
+        @foreach($tasks as $task)
 
-    <ul style="list-style-type: none;">
+            <li><input type="checkbox" {{ $task['completed'] ? 'checked' : '' }} /> {{ $task['task'] }}</li>
 
-    @foreach($tasks as $task)
+        @endforeach
 
-        <li><input type="checkbox" {{ $task['completed'] ? 'checked' : '' }} /> {{ $task['task'] }}</li>
-
-    @endforeach
-
-    </ul>
-
+        </ul>
+    </div>
 @endsection

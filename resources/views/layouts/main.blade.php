@@ -11,7 +11,8 @@
             box-sizing: inherit !important;
             }
             a {
-                color: #303030;
+                color: blue; 
+                text-decoration: underline;
             }
             html {
             box-sizing: border-box;
