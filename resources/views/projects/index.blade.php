@@ -12,7 +12,6 @@
         @foreach($projects as $project)
             <li>
                 <a 
-                    style="color: blue; text-decoration: underline;" 
                     href="/projects/{{ $project->id }}">{{ $project->title }}
                 </a>
             </li>
