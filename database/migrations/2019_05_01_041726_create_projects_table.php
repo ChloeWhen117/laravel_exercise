@@ -14,10 +14,12 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('title');
+            $table->increments('id');
+            $table->unsignedBigInteger('author_id');
+            $table->string('title');
             $table->text('description');
             $table->timestamps();
+            $table->foreign('author_id')->references('id')->on('users'); // ->onDelete('cascade');
         });
     }
 
