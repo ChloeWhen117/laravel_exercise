@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Project;
+use App\Mail\ProjectCreatedMail;
 
 class ProjectsController extends Controller
 {
@@ -15,7 +16,7 @@ class ProjectsController extends Controller
 
     public function index()
     {
-        $projects = Project::where('author_id', auth()->id())->get();
+        $projects = auth()->user()->projects;
         return view('projects.index', compact('projects'));
     }
 
