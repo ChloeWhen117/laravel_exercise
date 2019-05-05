@@ -7,7 +7,7 @@
 
 ### Laravel
 
-- Version >= 5.7
+- Version >= 5.8
 - Should be running on `http://127.0.0.1:8000/` 
 
 ## Installing App
