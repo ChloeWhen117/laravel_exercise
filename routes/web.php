@@ -14,6 +14,7 @@
 // Main Routes
 
 Route::get('/', 'MainController@home');
+Route::get('/home', 'MainController@home');
 Route::get('/about', 'MainController@about');
 Route::get('/contact', 'MainController@contact');
 
@@ -37,5 +38,3 @@ Route::Get('/phpinfo', function() {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -35,16 +35,19 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
+        $this->authorize('owns', $project);
         return view('projects.show', compact('project'));
     }
     
     public function edit(Project $project)
     {
+        $this->authorize('owns', $project);
         return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project)
     {
+        $this->authorize('owns', $project);
         $attributes = $this->validateProject();
         $project->update($attributes);
         return redirect('/projects');
@@ -52,6 +55,7 @@ class ProjectsController extends Controller
 
     public function destroy(Project $project)
     {
+        $this->authorize('owns', $project);
         $project->delete();
         return redirect('/projects');
     }
