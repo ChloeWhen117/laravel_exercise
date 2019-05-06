@@ -8,11 +8,15 @@
         <div class="row">
             <div class="col-md-12">
                 <hr />
-                <h1 class="title">{{ $project -> title }}</h1>
+                    <h1 class="title">{{ $project -> title }}</h1>
                 <hr />
-                <div>
-                    <p style="margin-bottom: 15px;">{{ $project->description }}</p>
+                <div class="card" style="margin-bottom: 15px;">
+                    <div class="card-body">
+                        <p class="card-text">{{ $project->description }}</p>
+                    </div>
+                </div>
 
+                <div>
                     <form style="margin-bottom: 15px;" action="/projects/{{ $project->id }}/edit" method="get">
                         <div class="field">
                             <div class="control">

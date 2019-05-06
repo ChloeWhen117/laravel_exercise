@@ -15,9 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 </head>
 <body>
@@ -80,5 +80,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
