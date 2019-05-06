@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Project;
-use App\Mail\ProjectCreatedMail;
+use App\Events\ProjectCreated;
 
 class ProjectsController extends Controller
 {
@@ -30,7 +30,8 @@ class ProjectsController extends Controller
         $attributes = $this->validateProject();
         $attributes['author_id'] = auth()->id();
         
-        Project::create($attributes);
+        $project = Project::create($attributes);
+
         return redirect('/projects');
     }
 
