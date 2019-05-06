@@ -1,4 +1,5 @@
 # laravel_sandbox
+To-do-list manager where users can create and maintain a list of projects. Each project has a title, description, and list of tasks to do. 
 
 ## Dependencies
 
