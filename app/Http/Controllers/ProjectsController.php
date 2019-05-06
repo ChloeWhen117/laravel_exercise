@@ -31,6 +31,7 @@ class ProjectsController extends Controller
         $attributes['author_id'] = auth()->id();
         
         $project = Project::create($attributes);
+        flash('Your project has been created.');
 
         return redirect('/projects');
     }

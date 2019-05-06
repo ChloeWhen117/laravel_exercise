@@ -10,6 +10,13 @@
                 <hr />
                 <h1 class="title">My Projects</h1>
                 <hr />
+                
+                @if (session('message'))
+                    <div class="alert alert-primary" role="alert">
+                        {{ session('message') }}
+                    </div>
+                @endif
+
                 @if($projects->count())
                     <ul>
                         @foreach($projects as $project)
