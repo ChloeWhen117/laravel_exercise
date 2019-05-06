@@ -11,7 +11,11 @@
                 <h1 class="title">Contact</h1>
                 <hr />
 
-                 <p>Alas there is no contact form here.</p>
+                <div class="card" style="margin-bottom: 15px;">
+                    <div class="card-body">
+                        <p class="card-text">Alas, there is no contact info here.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
